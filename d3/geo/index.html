@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="menu">
+      <div class="projection-type item">
+        <div><select name="type" value="Equirectangular"></select></div>
+      </div>
+      <div class="slider item">
+        <div class="label">scale (<span id="scaleLabel" class="value">96</span>)</div>
+        <div><span class="low">120</span> <input id="scale" type="range" name="scale" min="120" max="960" value="96"> <span>960</span>
+        </div>
+      </div>
+      <div class="slider item">
+        <div class="label">center (lon) (<span class="value">0</span>)</div>
+        <div><span class="low">-180</span> <input type="range" name="centerLon" min="-180" max="180" value="0">
+          <span>180</span></div>
+      </div>
+      <div class="slider item">
+        <div class="label">center (lat) (<span class="value">0</span>)</div>
+        <div><span class="low">-90</span> <input type="range" name="centerLat" min="-90" max="90" value="0">
+          <span>90</span></div>
+      </div>
+      <div class="slider item">
+        <div class="label">translate (x) (<span class="value">480</span>)</div>
+        <div><span class="low">0</span> <input id="translateX" type="range" name="translateX" min="0" max="960" value="480">
+          <span>960</span></div>
+      </div>
+      <div class="slider item">
+        <div class="label">translate (y) (<span id="yLabel" class="value">250</span>)</div>
+        <div><span class="low">0</span> <input id="translateY" type="range" name="translateY" min="0" max="500" value="250">
+          <span>500</span></div>
+      </div>
+      <div class="slider item">
+        <div class="label">rotate (λ) (<span id="lambdaLabel" class="value">0</span>)</div>
+        <div><span class="low">-180</span> <input id="rotateLambda" type="range" name="rotateLambda" min="-180" max="180" value="0">
+          <span>180</span></div>
+      </div>
+      <div class="slider item">
+        <div class="label">rotate (φ) (<span class="value">0</span>)</div>
+        <div><span class="low">-180</span> <input type="range" name="rotatePhi" min="-180" max="180" value="0">
+          <span>180</span></div>
+      </div>
+      <div class="slider item">
+        <div class="label">rotate (γ) (<span class="value">0</span>)</div>
+        <div><span class="low">-180</span> <input type="range" name="rotateGamma" min="-180" max="180" value="0">
+          <span>180</span></div>
+      </div>
+    </div>
+
+    <svg id="world-map" width="900px" height="450px">
+      <g class="svg-group">
+        <g class="graticule">
+          <path></path>
+        </g>
+        <g class="circles"></g>
+        <g class="map"></g>
+        <g class="night">
+          <path></path>
+        </g>
+        <circle class="projection-center" r="4"></circle>
+      </g>
+    </svg>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js"></script>
+    <script type="text/javascript" src="./scripts/solar-calculator.min.js"></script>
+    <script type="text/javascript" src="./scripts/versor.min.js"></script>
+    <script type="modules" src="./modules.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+
+</html>
